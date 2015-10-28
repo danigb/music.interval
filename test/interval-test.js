@@ -16,6 +16,7 @@ vows.describe('music-interval').addBatch({
     assert.equal(interval('2'), '2M')
     assert.equal(interval([1, 1, 3]), '23A')
     assert.equal(interval('blah'), null)
+    assert.equal(interval({}), null)
   },
   'simplify': {
     'simplify ascending intervals': function () {
@@ -32,6 +33,10 @@ vows.describe('music-interval').addBatch({
       assert.deepEqual(interval.simplify([0, 1, -1]), [0, 1, -1])
       assert.equal(interval.simplify('-8A'), '-8A')
       assert.equal(interval.simplify('-29A'), '-8A')
+    },
+    'invalid intervals': function () {
+      assert.equal(interval.simplify('3P'), null)
+      assert.equal(interval.simplify('blah'), null)
     }
   },
   'invert interval': {
@@ -58,6 +63,9 @@ vows.describe('music-interval').addBatch({
     'numbers': function () {
       assert.equal(types([0, 1, 2, 3, 4, 5, 6]), 'PMMPPMM')
       assert.equal(types([7, 8, 9, 10, 11, 12, 13]), 'PMMPPMM')
+    },
+    'invalid intervals': function () {
+      assert.equal(interval.type('blah'), null)
     }
   },
   'semitones': {

@@ -85,11 +85,9 @@ interval.invert = decorate(invert)
 function type (interval) {
   if (!isNaN(interval)) return TYPES[Math.abs(interval) % 7]
   var i = asInterval.parse(interval)
-  return interval ? type(i[0]) : null
+  return i ? type(i[0]) : null
 }
 interval.type = type
-
-
 
  /**
   * Get the semitones of a interval
