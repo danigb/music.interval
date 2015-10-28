@@ -1,7 +1,7 @@
 {
   "name": "music.interval",
-  "version": "0.0.0",
-  "description": "Music intervals",
+  "version": "0.0.1",
+  "description": "Manipulate music intervals",
   "main": "index.js",
   "scripts": {
     "test": "vows --spec test/*.js",
@@ -19,6 +19,7 @@
   },
   "keywords": [
     "music",
+    "interval",
     "music.kit"
   ],
   "author": "danigb",
@@ -26,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/danigb/music.interval/issues"
   },
-  "homepage": "https://github.com/danigb/music.interval#readme"
+  "homepage": "https://github.com/danigb/music.interval#readme",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  },
+  "dependencies": {
+    "music.interval.parser": "0.0.x"
+  }
 }
